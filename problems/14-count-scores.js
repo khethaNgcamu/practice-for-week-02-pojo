@@ -29,6 +29,28 @@ console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 
 function countScores(people) {
   // Your code here
+  // let countObj = {};
+  
+  // copied somewhere
+
+  const scores = {};
+
+  // Iterate through the array of score objects
+  for (let person of people) {
+      // Extract scorer and points from the current score object
+      const { scorer, points } = person;
+
+      // If the scorer is encountered for the first time, initialize their total points
+      if (scores[scorer] === undefined) {
+          scores[scorer] = points;
+      } else {
+          // If the scorer is already present, add the points to their total
+          scores[scorer] += points;
+      }
+  }
+
+  // Return the object containing total points for each scorer
+  return scores;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
